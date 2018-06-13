@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-
+﻿
 [System.Serializable]
 public class PlayerWeapon
 {
@@ -7,7 +6,5 @@ public class PlayerWeapon
 
     public int damage = 10;
     public float range = 1000f;
-
-	// Use this for initialization
 
 }

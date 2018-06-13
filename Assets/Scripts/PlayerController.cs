@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerMotor))]
 [RequireComponent(typeof(ConfigurableJoint))]
 public class PlayerController : MonoBehaviour
@@ -12,9 +13,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float thrusterForce = 1000f;
 
+    
+
+
     [Header("Spring settings")]
-    [SerializeField]
-    private JointDriveMode jointMode = JointDriveMode.Position;
+    /*[SerializeField]
+    private JointDriveMode jointMode = JointDriveMode.Position;*/
     [SerializeField]
     private float jointSpring = 20f;
     [SerializeField]
@@ -23,13 +27,14 @@ public class PlayerController : MonoBehaviour
 
     private PlayerMotor motor;
     private ConfigurableJoint joint;
+    private Animator animator;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         motor = GetComponent<PlayerMotor>();
         joint = GetComponent<ConfigurableJoint>();
-
+        animator = GetComponent<Animator>();
         SetJointSettings(jointSpring);
 	}
 	
@@ -37,14 +42,17 @@ public class PlayerController : MonoBehaviour
 	void Update ()
     {
         //calculate movement velocity as a 3d vector
-        float xMov = Input.GetAxisRaw("Horizontal");
-        float zMov = Input.GetAxisRaw("Vertical");
+        float xMov = Input.GetAxis("Horizontal");
+        float zMov = Input.GetAxis("Vertical");
 
         Vector3 movHorizontal = transform.right * xMov;
         Vector3 movVertical = transform.forward * zMov;
 
         //final movement vector
-        Vector3 velocity = (movHorizontal + movVertical).normalized * speed;
+        Vector3 velocity = (movHorizontal + movVertical) * speed;
+
+        //Animate movement
+        animator.SetFloat("ForwardVelocity", zMov);
 
         motor.Move(velocity);
 
@@ -87,7 +95,7 @@ public class PlayerController : MonoBehaviour
     {
         joint.yDrive = new JointDrive
         {
-            mode = jointMode,
+            //mode = jointMode,
             positionSpring = jointSpring,
             maximumForce = jointMaxForce
         };

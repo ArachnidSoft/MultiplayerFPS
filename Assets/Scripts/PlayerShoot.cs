@@ -4,7 +4,13 @@ using UnityEngine;
 public class PlayerShoot : NetworkBehaviour
 {
     private const string PLAYER_TAG = "Player";
-    public PlayerWeapon weapon;
+
+    [SerializeField]
+    private PlayerWeapon weapon;
+    [SerializeField]
+    private GameObject weaponGFX;
+    [SerializeField]
+    private string weaponLayerName = "Weapon";
 
     [SerializeField]
     private Camera cam;
@@ -17,7 +23,10 @@ public class PlayerShoot : NetworkBehaviour
         if (cam == null)
         {
             Debug.LogError("PlayerShoor: No camera referenced.");
+            this.enabled = false;
         }
+
+        weaponGFX.layer = LayerMask.NameToLayer(weaponLayerName);
 	}
 	
 	// Update is called once per frame
@@ -50,7 +59,7 @@ public class PlayerShoot : NetworkBehaviour
         Debug.Log(_playerID + " has been shot");
 
         Player _player = GameManager.GetPlayer(_playerID);
-        _player.TakeDamage(damage);
+        _player.RpcTakeDamage(damage);
 
     }
 
