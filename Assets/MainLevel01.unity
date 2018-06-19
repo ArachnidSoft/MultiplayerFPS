@@ -498,6 +498,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3f79402ff4ca9c54d96a09d1a77540d5, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f79402ff4ca9c54d96a09d1a77540d5, type: 3}
   m_IsPrefabParent: 0
@@ -677,6 +681,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3c6c579b56c7c7c439bedddee111a433, type: 2}
+    - target: {fileID: 100000, guid: fadddc63520db414bbc9126cbf4743ad, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fadddc63520db414bbc9126cbf4743ad, type: 3}
   m_IsPrefabParent: 0
@@ -808,6 +816,14 @@ Prefab:
       propertyPath: m_Name
       value: CubePrototype04x04x04 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3f79402ff4ca9c54d96a09d1a77540d5, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3f79402ff4ca9c54d96a09d1a77540d5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6127884
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f79402ff4ca9c54d96a09d1a77540d5, type: 3}
   m_IsPrefabParent: 0
@@ -857,6 +873,10 @@ Prefab:
     - target: {fileID: 100000, guid: 3f79402ff4ca9c54d96a09d1a77540d5, type: 3}
       propertyPath: m_Name
       value: CubePrototype04x04x04 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3f79402ff4ca9c54d96a09d1a77540d5, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f79402ff4ca9c54d96a09d1a77540d5, type: 3}
